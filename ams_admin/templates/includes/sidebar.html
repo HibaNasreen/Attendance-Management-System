@@ -1,0 +1,49 @@
+{% load static %}
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+       <div id="sidebar-menu" class="sidebar-menu">
+          <ul>
+             <li class="menu-title">
+                <span></span>
+             </li>
+             <li>
+                <a href="{% url 'ams_admin:verify_staff' %}"><i class="fas fa-chalkboard-teacher"></i><span>Verify Staff</span></a>
+             </li>
+             
+             <li>
+                <a href="{% url 'ams_admin:view_students' %}"><i class="fas fa-user-graduate"></i> <span>View Student</span></a>
+             </li>
+             <li>
+                <a href="{% url 'ams_admin:view_attendance' %}"><i class="fa fa-calendar" aria-hidden="true"></i> <span>View Attendence</span></a>
+             </li>
+             <li class="submenu">
+                <a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> <span> Semester</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   <li><a href="{% url 'ams_admin:view_semesters' %}">View Semesters</a></li>
+                   <li><a href="{% url 'ams_admin:semester_add' %}">Add Semester</a></li>
+                </ul>
+             </li>
+             <li class="submenu">
+               <a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> <span> Session year</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'ams_admin:view_session_years' %}">View session years</a></li>
+                  <li><a href="{% url 'ams_admin:add_session_year' %}">Add session year</a></li>
+               </ul>
+            </li>
+             <li class="submenu">
+                <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   
+                   <li><a href="{% url 'ams_admin:view_subjects' %}">View Subjects</a></li>
+                   <li><a href="{% url 'ams_admin:add_subject' %}">Add Subject</a></li>
+                </ul>
+             </li>
+             <li>
+                <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt "></i> <span>Logout</span></a>
+             </li>
+          </ul>
+
+         </div>
+    </div>
+ </div>

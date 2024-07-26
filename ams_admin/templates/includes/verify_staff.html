@@ -1,0 +1,27 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+<div class="tab-ams">
+    <h1>Verify Staff</h1>
+    
+    <div class="card-container">
+        {% for u in unverified %}
+        <div class="card">
+            <form onsubmit="return confirm('Do you confirm?')"  method="POST" >
+                {% csrf_token %}
+                <h3>{{ u.first_name }} {{ u.last_name }}</h3>
+                <p>@{{ u.username }}</p>
+                <p>{{ u.email }}</p>    
+                <br>
+                
+                <button type="submit" formaction = {% url 'ams_admin:verify_staff_verify' u.id %}  class="ams-primary-button" >Verify</button>
+                <button type="submit" formaction = {% url 'ams_admin:verify_staff_remove' u.id %} class="red-button" >Remove</button>  
+           
+            </form>
+        </div>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+{% endblock %}
