@@ -1,0 +1,43 @@
+{% extends 'staff_base.html' %}
+{% block content %}
+<div class="tab-ams">
+    <h1>Mark Attendence</h1>
+
+
+    <div>
+        <div id="attend" class="p-5">
+            <h2>List of Classes</h2>
+           <table class="table table-striped table-bordered">
+               <thead class="thead-light">
+                  <th class="col-3">Semester</th>
+                  <th class="col-3">Subject</th>
+                  <th class="col-6"></th>
+               </thead>
+               <tbody>
+                 
+                {% for s in subject %}
+                    <form method="POST" >
+                        {% csrf_token %}
+                        <tr>
+                        <td>{{ s.semester }}</td>
+                        <td>{{ s.name }}</td>
+                        <td>
+                            <a href="{% url 'ams_staff:staff_enter_attendance' s.id %}" class="btn btn-success small">Enter Attendance</a>
+                            <button type="button" class="btn btn-info small">Extra Class</button>
+                            <button type="button" class="btn btn-primary small">View Students</button>
+                        </td>
+                        </tr>
+                    </form>
+                {% endfor %}
+
+               </tbody>
+           </table>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+{% endblock %}

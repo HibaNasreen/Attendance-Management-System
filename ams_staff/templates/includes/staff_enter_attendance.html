@@ -1,0 +1,37 @@
+{% extends 'staff_base.html' %}
+{% block content %}
+<div class="tab-ams">
+    <h1>Mark Attendence</h1>
+
+
+    <div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div id="student attendance" class="p-5">
+                <p>Date: <input type="date" id="datepicker" name="date" style="padding:0.5em;margin:0 1em 0 1em;"></p>
+                <br />
+                <p>Select attendees</p>
+                <select class="multiple-select" multiple multiselect-search="true" multiselect-select-all="true" name="attendees" style="display:block;width:360px;padding:1.5em;">
+                    {% for s in students %}
+                        <option value="{{s.admin.pk}}"> {{s.admin.first_name}}</option>
+                    {% endfor %}
+                </select>
+                <input class="btn btn-primary" type="submit" value="Submit Attendance" >
+            </div>
+        </form>
+
+
+        {% for m in messages %}
+            <h2> {{ m }} </h2>
+        {% endfor %}
+
+           
+        </div>
+    </div>
+
+
+
+
+</div>
+{% endblock %}

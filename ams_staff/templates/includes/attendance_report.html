@@ -1,0 +1,78 @@
+
+{% extends 'staff_base.html' %}
+{% block content %}
+<!--<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Report</title>
+</head>
+<body>
+    <h1>Attendance Report</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Attendance Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in attendance_data %}
+            <tr>
+                <td>{{ data.student.admin.first_name }} {{ data.student.admin.last_name }}</td>
+                <td>{{ data.attendance_percentage }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>Average Attendance Percentage: {{ average_attendance }}%</p>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Report</title>
+    <style>
+        .student-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .student-name {
+            flex: 1;
+        }
+        
+        .attendance-percentage {
+            width: 100px;
+        }
+        
+        .below-75 {
+            color: red;
+        }
+        
+        .above-75 {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance Report</h1>
+    <table>
+        {% for entry in attendance_report %}
+            <div class="student-row">
+                <span class="student-name">{{ entry.student }}</span>
+                <span class="attendance-percentage {% if entry.percentage < 75 %}below-75{% else %}above-75{% endif %}">
+                    {{ entry.percentage }}%
+                </span>
+            </div>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+{% endblock %}
