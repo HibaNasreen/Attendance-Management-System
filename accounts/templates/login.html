@@ -1,0 +1,199 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+        <title>SignUp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <link rel="preconnect" href="'https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  
+<style media="screen">
+    *,
+    *:before,
+    *:after{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color:white;
+    }
+    .background{
+        width: 430px;
+        height: 520px;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+    }
+    .background .shape{
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        border-radius: 50%;
+    }
+    .shape:first-child{
+        background: linear-gradient(
+            #1845ad,
+            #23a2f6
+        );
+        left: -80px;
+        top: -80px;
+    }
+    .shape:last-child{
+        background: linear-gradient(
+            to right,
+            #ff512f,
+            #f09819
+        );
+        right: -30px;
+        bottom: -80px;
+    }
+    form{
+  
+        background-color: rgba(255,255,255,0.13);
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.1);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        padding: 2em 3em;
+    }
+    form *{
+        font-family: 'Poppins',sans-serif;
+        
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+    }
+    form h2{
+        
+        text-align: center;
+        margin:0 0 1em 0;
+    }
+    
+    label{
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+        margin-top:1em;
+    }
+    input,select{
+        display: block;
+        height: 50px;
+        width: 100%;
+        
+        border-radius: 3px;
+        padding: 0 1.5em;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+        border:1px solid #cfcfcf;
+        margin-bottom:1em;
+    }
+    ::placeholder{
+        color: #e5e5e5;
+    }
+    .button-primary{
+        margin-top: 1em;
+        width: 100%;
+        background-color: #18aefa;
+        color: white;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .social{
+      margin-top: 30px;
+      display: flex;
+    }
+    .social div{
+      background: red;
+      width: 150px;
+      border-radius: 3px;
+      padding: 5px 10px 10px 5px;
+      background-color: rgba(255,255,255,0.27);
+      color: #eaf0fb;
+      text-align: center;
+    }
+    .social div:hover{
+      background-color: rgba(255,255,255,0.47);
+    }
+    .social .fb{
+      margin-left: 25px;
+    }
+    .social i{
+      margin-right: 4px;
+    }
+    
+        </style>
+    </head>
+  <body>
+    
+    
+    <div class="main">
+
+      <div class="wrapper">
+                  <div class="form-container" >
+
+                    {% for m in messages %}
+                      <p> {{ m }} </p>
+                    {% endfor %}
+
+                      <form method="POST">
+                      
+                        <h2>Log In</h2>
+                        
+                        {%  csrf_token %} 
+                        <div class="form-item">
+                        <div>  
+                          {{ form.username.label }}
+                        </div>
+                        {{ form.username }}
+                        </div>
+
+                        <div class="form-item">
+                          <div>
+                            {{ form.password.label }}
+                          </div>
+                        {{ form.password }}
+                        </div>
+                        
+                        {% comment %} 
+                          <div class="form-item">
+                            <div>
+                              {{ form.role.label }}
+                            </div>
+                              {{ form.role }}
+                          </div>
+                        {% endcomment %}
+                        
+                        <div class="form-item">
+                          <input class="button-primary" type='submit' value='Login'>
+                        </div>
+
+                      {% comment %}
+                          <div class="d-flex justify-content-between align-items-center">  
+                          <a href="#" class="text-body">Forgot password?</a>
+                        </div>
+                      {% endcomment %}              
+                      
+                        <div class="text-center text-lg-start mt-4 pt-2 ">
+                          <p class="lh-lg"> Don't have an account? </p>
+                          <a href="{% url 'registration' %}" class="link-danger">Register</a></p>
+                        </div>
+              
+                      </form>
+                    </div>
+        </div>  
+    </div>
+
+  </body>
+</html>

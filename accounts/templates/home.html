@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  
+    
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      background-color:red;
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+    }
+
+    .alert {
+      margin: 0px;
+    }
+
+    .ams-landing-page{
+      background-color:#18aefa;
+      background-color:#343a40;
+      
+      height:100vh;
+      height:100dvh;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+
+
+
+    }
+    .ams-landing-page-main-title{
+      
+      
+      
+      background-color:#18aefa;
+      color:white;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+
+      margin:2em;
+      padding:2em 3em;
+      box-shadow: 0 1em 40px rgba(8,7,16,0.2);
+    }
+    .ams-landing-page h1{
+      
+      color:white;
+      font-weight:500;
+      
+    }
+    .ams-landing-page p{
+      
+      padding:1em 0;
+      line-height:1.5em;
+      
+    }
+  </style>
+
+</head>
+
+<body>
+  {% include "navbar.html" %}
+  <br>
+  <br>
+  <div class="ams-landing-page" style="margin-bottom: 0px;margin-top: 0px;">
+    <div class="ams-landing-page-main-title">
+    <h1 class="display-4"><b>Attendance Management System</b></h1>
+    {% comment %} <p>
+      Features : 
+    </p> {% endcomment %}
+    </div>
+  </div>
+</body>
+
+</html>

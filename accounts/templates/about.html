@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> An About Us Page</title>
+ <link rel="stylesheet" href="#about">
+ <style>
+    .topnav {
+      background-color: rgb(231, 181, 119);
+      
+      overflow: hidden;
+    }
+    .topnav a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    .topnav a:hover {
+      background-color: black;
+      color: rgb(231, 181, 119);
+    }
+    .topnav a.active {
+      background-color: rgb(231, 181, 119);
+      color: rgb(253, 218, 17);
+      font-weight:700;
+      font-size: 20px;
+      font-family: 'Poppins', sans-serif;
+
+
+
+    }
+    .main{
+      background-color: rgb(231, 181, 119);
+      height: 240px;
+    }
+    .about{
+      margin-left: 500px;
+      margin-top: 50px;
+
+    }
+    .img{
+      margin-left: 430px;
+      margin-top: 20px;
+    }
+    .pic{
+      width: 400px;
+      height: 200px;
+    }
+    .des{
+      margin-left: 430px;
+      margin-top: 10px;
+      margin-right: 520px;
+    }
+    h{
+      /* font-family: Georgia, 'Times New Roman', Times, serif; */
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+    }
+    h1{
+      color: black;
+      font-size: 50px;
+    }
+    body{
+      margin:0;
+      padding: 0;
+
+    }
+
+    
+ </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="h">
+      <div class="topnav">
+        <a class="active" href="#yellow">Attendance Management System</a>
+        <a href="{% url 'home' %}">Home</a>
+      </div>
+      <div class="about">
+        <h1><b>ABOUT US</b></h1>
+      </div>
+    </div>
+    <div class="content">
+        <!--<div class="img">
+            {% load static %}
+            <img src="{% static 'bus2.jpg' %}" class="pic">
+        </div>-->
+        <div class="des">
+            <br>
+            <h>Our platform is designed exclusively for establishing better college bus ticketing system.<br><br>The students can buy ticket using SBI collect link provided in thier portal.<br>College administrator can confirm that the student is paid the amount and can issue the ticket.<br>The driver can mark the attendance whenever students board the bus by simply scanning the barcode on the student ID card. </h>
+        </div>
+    </div>
+
+  
+  </div>
+</body>
+</html>

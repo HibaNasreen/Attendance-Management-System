@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>SignUp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    
+    <link rel="preconnect" href="'https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  
+
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:white;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+        background: linear-gradient(
+            to right,
+            #ff512f,
+            #f09819
+        );
+        right: -30px;
+        bottom: -80px;
+}
+
+
+form{
+    background-color: red(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 2em ;
+
+    margin:2em;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color:black;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h2{
+    
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.button-primary{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #18aefa;
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form-item{
+  margin-top:1em;
+}
+.form-item input, select{
+  font-size:1em;
+  padding:0.8em;
+  border:1px solid #cfcfcf;
+}
+
+    </style>
+</head>
+<body>
+    <div class="background">
+       
+    </div>
+    <div class="wrapper">
+        <div class="form-container" >
+    
+            {% for m in messages %}
+                <p> {{ m }} </p>
+            {% endfor %}
+    
+            <form method="POST" action="">
+            
+              <h2>Staff Registration</h2>
+              {%  csrf_token %} 
+              <div class="form-item">
+                <div>
+                  {{ form.first_name.label }}
+                </div>
+                  {{ form.first_name }}
+              </div>
+    
+              <div class="form-item">
+                <div>
+                  {{ form.last_name.label }}
+                </div>
+                  {{ form.last_name }}
+              </div>
+    
+              <div class="form-item">
+                <div>
+                  {{ form.email.label }}
+                </div>
+                  {{ form.email }}
+              </div>
+    
+              <div class="form-item">
+                <div>
+                  {{ form.username.label }}
+                </div>
+                  {{ form.username }}
+              </div>
+    
+              <div class="form-item">
+                <div>
+                  {{ form.password.label }}
+                </div>
+                  {{ form.password }}
+              </div>
+              
+
+              {% comment %} 
+              <div class="form-item">
+                <div>
+                  {{ form.role.label }}
+                </div>
+                  {{ form.role }}
+              </div>
+               {% endcomment %}
+
+               
+              <button type='submit' class="button-primary" >Register</button>
+      
+            </form>  
+        </div>
+    </div>
+     
+    </body>  
+    </html>
+
+
+
+
